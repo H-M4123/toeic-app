@@ -1,7 +1,8 @@
 import { GoogleGenAI, Type, Schema } from '@google/genai';
 import { QuestionGroup } from '../types';
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY, vertexai: true });
+const apiKey = import.meta.env.VITE_GEMINI_API_KEY || '';
+const ai = new GoogleGenAI({ apiKey: apiKey });
 
 const questionSchema: Schema = {
   type: Type.ARRAY,
